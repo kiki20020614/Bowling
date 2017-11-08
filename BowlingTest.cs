@@ -28,7 +28,7 @@ namespace Bowling
         [TestCase(3, 0, 30)]
         [TestCase(3, 2, 50)]
         [TestCase(4, 5, 90)]
-        public void WhenBowlingGetScore_ReturnScores(int firstScore, int SecondScore, int exceptedScore)
+        public void WhenBowlingGetScore_ReturnScore(int firstScore, int SecondScore, int exceptedScore)
         {
             var Bowling = new Bowling();
 
