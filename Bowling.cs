@@ -25,7 +25,11 @@ namespace Bowling
             for (int i = 0; i < 10; i++)
             {
                 var sumScore = rolls[i].FirstScore + rolls[i].SecondScore;
-                if (sumScore == maxScoreOfRound)
+                if (rolls[i].FirstScore == maxScoreOfRound || rolls[i].SecondScore == maxScoreOfRound)
+                {
+                    sumScore += rolls[i + 1].FirstScore + rolls[i + 1].SecondScore;
+                }
+                else if (sumScore == maxScoreOfRound)
                 {
                     sumScore += rolls[i + 1].FirstScore;
                 }

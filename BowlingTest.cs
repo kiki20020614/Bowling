@@ -72,14 +72,14 @@ namespace Bowling
             Bowling.Roll(10, 0); //0 -> 11 + 1 = 12
             Bowling.Roll(1, 0); //13
             Bowling.Roll(1, 0); //14
-            Bowling.Roll(10, 0); //24
-            Bowling.Roll(1, 0); //25
+            Bowling.Roll(10, 0); //25
             Bowling.Roll(1, 0); //26
             Bowling.Roll(1, 0); //27
             Bowling.Roll(1, 0); //28
             Bowling.Roll(1, 0); //29
+            Bowling.Roll(1, 0); //30
 
-            var expected = 29;
+            var expected = 30;
 
             Assert.AreEqual(expected, Bowling.Score());
         }
