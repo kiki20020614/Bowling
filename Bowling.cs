@@ -8,7 +8,7 @@
         private int spareScore;
         private int score;
 
-        public int Roll(int first, int second)
+        public void Roll(int first, int second)
         {
             if (first + second == maxScoreOfRound)
             {
@@ -19,8 +19,6 @@
                 spareScore = spareScore == maxScoreOfRound ? maxScoreOfRound + first : 0;
                 score = score + first + second + spareScore;
             }
-
-            return score;
         }
 
         public int Score()
