@@ -1,29 +1,45 @@
-﻿namespace Bowling
+﻿using System.Collections.Generic;
+
+namespace Bowling
 {
     public class Bowling
     {
         public readonly int Rounds = 10;
 
+
+        private List<RollOfRound> rolls = new List<RollOfRound>();
         private readonly int maxScoreOfRound = 10;
-        private int spareScore;
         private int score;
 
-        public void Roll(int first, int second)
+        public void Roll(int firstScore, int secondScore)
         {
-            if (first + second == maxScoreOfRound)
+            rolls.Add(new RollOfRound
             {
-                spareScore = maxScoreOfRound;
-            }
-            else
-            {
-                spareScore = spareScore == maxScoreOfRound ? maxScoreOfRound + first : 0;
-                score = score + first + second + spareScore;
-            }
+                FirstScore = firstScore,
+                SecondScore = secondScore
+            });
         }
 
         public int Score()
         {
+            for (int i = 0; i < 10; i++)
+            {
+                var sumScore = rolls[i].FirstScore + rolls[i].SecondScore;
+                if (sumScore == maxScoreOfRound)
+                {
+                    sumScore += rolls[i + 1].FirstScore;
+                }
+
+                score += sumScore;
+            }
+
             return score;
+        }
+
+        public class RollOfRound
+        {
+            public int FirstScore { get; set; }
+            public int SecondScore { get; set; }
         }
     }
 }
