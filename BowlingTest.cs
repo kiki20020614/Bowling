@@ -145,8 +145,8 @@ namespace Bowling
             Bowling.Roll(1, 0); //28
             Bowling.Roll(1, 0); //29
 
-            Bowling.Roll(10, 0); //46
-            Bowling.Roll(10, 0); //46
+            Bowling.Roll(10, 0); //49
+            Bowling.Roll(10, 0); //
             Bowling.Roll(3, 0); //Sencond = -
 
             var expected = 52;

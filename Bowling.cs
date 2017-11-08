@@ -28,6 +28,11 @@ namespace Bowling
                 if (rolls[i].FirstScore == maxScoreOfRound || rolls[i].SecondScore == maxScoreOfRound)
                 {
                     sumScore += rolls[i + 1].FirstScore + rolls[i + 1].SecondScore;
+
+                    if (i == Rounds - 1 && (rolls[i + 1].FirstScore == maxScoreOfRound || rolls[i + 1].SecondScore == maxScoreOfRound))
+                    {
+                        sumScore += rolls[i + 2].FirstScore + rolls[i + 2].SecondScore;
+                    }
                 }
                 else if (sumScore == maxScoreOfRound)
                 {
