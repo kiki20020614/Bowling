@@ -17,12 +17,12 @@ namespace Bowling
 
             for (var i = 1; i <= Bowling.Rounds; i++)
             {
-                Bowling.Roll("0", "0");
+                Bowling.Roll(0, 0);
             }
 
             var expected = 0;
 
-            Assert.AreEqual(expected, Bowling.Scores);
+            Assert.AreEqual(expected, Bowling.Scores());
         }
 
         [Test]
@@ -32,12 +32,12 @@ namespace Bowling
 
             for (var i = 1; i <= Bowling.Rounds; i++)
             {
-                Bowling.Roll("3", "0");
+                Bowling.Roll(3, 0);
             }
 
             var expected = 30;
 
-            Assert.AreEqual(expected, Bowling.Scores);
+            Assert.AreEqual(expected, Bowling.Scores());
         }
     }
 }

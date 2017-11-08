@@ -3,11 +3,17 @@
     public class Bowling
     {
         public readonly int Rounds = 10;
-        public int Scores { get; set; }
+        private int scores;
 
-        public int Roll(string first, string second)
+        public int Roll(int first, int second)
         {
-            return 0;
+            scores = scores + first + second;
+            return scores;
+        }
+
+        public int Scores()
+        {
+            return scores;
         }
     }
 }
