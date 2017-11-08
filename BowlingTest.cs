@@ -41,5 +41,26 @@ namespace Bowling
 
             Assert.AreEqual(expected, Bowling.Score());
         }
+
+        [Test]
+        public void WhenBowlingGetSpare_ReturnScore()
+        {
+            var Bowling = new Bowling();
+
+            Bowling.Roll(1, 0); //1
+            Bowling.Roll(1, 9); //0 -> 11 + 1 = 12
+            Bowling.Roll(1, 0); //13
+            Bowling.Roll(1, 0); //14
+            Bowling.Roll(1, 0); //15
+            Bowling.Roll(1, 0); //16
+            Bowling.Roll(1, 0); //17
+            Bowling.Roll(1, 0); //18
+            Bowling.Roll(1, 0); //19
+            Bowling.Roll(1, 0); //20
+
+            var expected = 20;
+
+            Assert.AreEqual(expected, Bowling.Score());
+        }
     }
 }
