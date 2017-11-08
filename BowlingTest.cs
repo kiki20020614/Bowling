@@ -10,9 +10,19 @@ namespace Bowling
     [TestFixture]
     public class BowlingTest
     {
-        //[Test]
-        //public void ()
-        //{
-        //}
+        [Test]
+        public void WhenBowlingGutterBall_Return0()
+        {
+            var Bowling = new Bowling();
+
+            for (var i = 1; i <= Bowling.Rounds; i++)
+            {
+                Bowling.Roll("0", "0");
+            }
+
+            var expected = 0;
+
+            Assert.AreEqual(expected, Bowling.Scores);
+        }
     }
 }
