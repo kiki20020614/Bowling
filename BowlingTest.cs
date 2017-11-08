@@ -83,5 +83,28 @@ namespace Bowling
 
             Assert.AreEqual(expected, Bowling.Score());
         }
+
+        [Test]
+        public void WhenBowling10RoundGetFirstStrike_ReturnScore()
+        {
+            var Bowling = new Bowling();
+
+            Bowling.Roll(1, 0); //1
+            Bowling.Roll(10, 0); //0 -> 11 + 1 = 12
+            Bowling.Roll(1, 0); //13
+            Bowling.Roll(1, 0); //14
+            Bowling.Roll(10, 0); //25
+            Bowling.Roll(1, 0); //26
+            Bowling.Roll(1, 0); //27
+            Bowling.Roll(1, 0); //28
+            Bowling.Roll(1, 0); //29
+
+            Bowling.Roll(10, 0); //46
+            Bowling.Roll(4, 3); 
+
+            var expected = 46;
+
+            Assert.AreEqual(expected, Bowling.Score());
+        }
     }
 }
