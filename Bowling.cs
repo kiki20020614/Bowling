@@ -6,7 +6,6 @@ namespace Bowling
     {
         public readonly int Rounds = 10;
 
-
         private List<RollOfRound> rolls = new List<RollOfRound>();
         private readonly int maxScoreOfRound = 10;
         private int score;
@@ -22,27 +21,33 @@ namespace Bowling
 
         public int Score()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 1; i <= 10; i++)
             {
-                var sumScore = rolls[i].FirstScore + rolls[i].SecondScore;
-                if (rolls[i].FirstScore == maxScoreOfRound || rolls[i].SecondScore == maxScoreOfRound)
+                var arrayRound = i - 1;
+                var sumScore = rolls[arrayRound].FirstScore + rolls[arrayRound].SecondScore;
+                if (GetStrike(arrayRound))
                 {
-                    sumScore += rolls[i + 1].FirstScore + rolls[i + 1].SecondScore;
+                    sumScore += rolls[arrayRound + 1].FirstScore + rolls[arrayRound + 1].SecondScore;
 
-                    if (i == Rounds - 1 && (rolls[i + 1].FirstScore == maxScoreOfRound || rolls[i + 1].SecondScore == maxScoreOfRound))
+                    if (arrayRound == Rounds - 1 && (rolls[arrayRound + 1].FirstScore == maxScoreOfRound || rolls[arrayRound + 1].SecondScore == maxScoreOfRound))
                     {
-                        sumScore += rolls[i + 2].FirstScore + rolls[i + 2].SecondScore;
+                        sumScore += rolls[arrayRound + 2].FirstScore + rolls[arrayRound + 2].SecondScore;
                     }
                 }
                 else if (sumScore == maxScoreOfRound)
                 {
-                    sumScore += rolls[i + 1].FirstScore;
+                    sumScore += rolls[arrayRound + 1].FirstScore;
                 }
 
                 score += sumScore;
             }
 
             return score;
+        }
+
+        private bool GetStrike(int arrayRound)
+        {
+            return rolls[arrayRound].FirstScore == maxScoreOfRound || rolls[arrayRound].SecondScore == maxScoreOfRound;
         }
 
         public class RollOfRound
