@@ -177,5 +177,48 @@ namespace Bowling
 
             Assert.AreEqual(expected, Bowling.Score());
         }
+
+        [Test]
+        public void test()
+        {
+            var Bowling = new Bowling();
+
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+            Bowling.Roll(9, 0); //1
+
+            var expected = 90;
+
+            Assert.AreEqual(expected, Bowling.Score());
+        }
+
+        [Test]
+        public void test1()
+        {
+            var Bowling = new Bowling();
+
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 5); //1
+            Bowling.Roll(5, 0); //1
+
+            var expected = 150;
+
+            Assert.AreEqual(expected, Bowling.Score());
+        }
     }
 }
